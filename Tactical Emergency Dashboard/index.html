@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Indian Railways Child Safety Portal - Emergency Dashboard</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;family=Roboto+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f20d0d",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#1a1212", /* Slightly darker than config for tactical feel */
+                        "surface-dark": "#2a2020",
+                        "terminal-black": "#0c0c0c",
+                        "success": "#22c55e",
+                        "warning": "#eab308",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"],
+                        "mono": ["Roboto Mono", "monospace"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        @keyframes pulse-slow {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .animate-blink {
+            animation: blink 1s step-end infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-background-dark text-white font-display min-h-screen flex flex-col overflow-hidden">
+    <!-- Top Navigation -->
+    <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-[#3a2e2e] bg-surface-dark px-6 py-4 z-10 shadow-lg">
+        <div class="flex items-center gap-4">
+            <div class="size-8 text-white">
+                <svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z"
+                        fill="currentColor"></path>
+                    <path clip-rule="evenodd"
+                        d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z"
+                        fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div>
+                <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Indian Railways</h2>
+                <p class="text-white/60 text-xs font-medium uppercase tracking-wider">Child Safety Emergency Portal</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 bg-primary/20 px-3 py-1 rounded-full border border-primary/30">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                <span class="text-xs font-bold text-primary uppercase">Live Emergency Mode</span>
+            </div>
+            <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border-2 border-white/10"
+                data-alt="User profile placeholder"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB_PaDg_zCEkyfY_Q4t4WQqxYm9HR6KLFK6JoJkoKe0-1K5hcLg1SitnKqm0Yno_PAV-rK_5p5XrpepIs5w6xkH8M81e-q1162IWCd5LtF-3hgMJMfd2mlOYpFbIriruC-amWmH3tQCMuJs0ydqenFtKz3TLgtf5ZDX1nx3Xd0b5Pi7PpOVjimGAxCNNy-0Qwk_lXzDqwV_lVs-KXC9_TBoseKiiEZ9rAxGfDwny7wec7edKcQkAp-4mfHBQ7FkuVga2TENA1OJ5H8a");'>
+            </div>
+        </div>
+    </header>
+    <!-- Main Dashboard Content -->
+    <main class="flex-1 p-6 gap-6 grid grid-cols-1 lg:grid-cols-12 overflow-hidden h-full">
+        <!-- Left Panel: Instructions -->
+        <section class="lg:col-span-4 flex flex-col gap-6 h-full">
+            <div
+                class="bg-surface-dark rounded-2xl p-8 border-l-8 border-primary shadow-xl flex flex-col justify-center flex-1 relative overflow-hidden group">
+                <!-- Abstract Map Background -->
+                <div class="absolute inset-0 opacity-10 pointer-events-none" data-alt="Abstract map of New Delhi"
+                    data-location="New Delhi"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD_fm1IQx3VCPww3hasXyyO7N5VKYiYr_a4vIVjVG1rCVpuIYDSZqxWvAslYCsnTHGZfJHOzi0Mna93RGn_2aicXRxreJ3FPhsRkPsOeQHcnNjaUO1Dmorbtyk6Mf5fR6kaZv2a17on6f5WOGIQUuLkv4p-e4gJWc6UZDpR9cj2BFCplOwAqpS2WoLAv7aU_40ZNRGg3qnX-oxFowet-7MbKtoqlarapw2WZiey6zEUre8jwW4mF1WjtbEW4L6r4lBnaff-ozKCzEsY'); background-size: cover; mix-blend-mode: luminosity;">
+                </div>
+                <div class="relative z-10 flex flex-col gap-6">
+                    <div
+                        class="inline-flex items-center gap-2 text-primary/80 font-mono text-sm uppercase tracking-widest border border-primary/30 self-start px-3 py-1 rounded bg-black/40 backdrop-blur-sm">
+                        <span class="material-symbols-outlined text-base">my_location</span>
+                        Location Detected
+                    </div>
+                    <div>
+                        <h1 class="text-5xl font-black leading-[1.1] tracking-tight text-white mb-6">
+                            STAY EXACTLY<br />
+                            <span class="text-primary">WHERE YOU ARE</span>
+                        </h1>
+                        <p class="text-xl text-white/80 leading-relaxed font-light">
+                            Help is currently moving toward your location. Moving makes it harder for our teams to find
+                            you.
+                        </p>
+                    </div>
+                    <div class="mt-8 p-4 bg-black/30 rounded-lg border border-white/10 backdrop-blur-md">
+                        <p class="text-xs text-white/50 uppercase tracking-wider mb-1">Your Coordinates</p>
+                        <p class="text-2xl font-mono text-white">Platform 4, New Delhi Station</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Quick Action Button (Mobile/Tablet view) -->
+            <a href="../Resolution Success Dashboard/index.html"
+                class="lg:hidden w-full bg-primary hover:bg-red-700 transition-colors text-white h-16 rounded-xl flex items-center justify-center gap-3 font-bold text-lg shadow-[0_0_20px_rgba(242,13,13,0.4)]">
+                <span class="material-symbols-outlined fill-1">call</span>
+                CALL RPF DIRECTLY
+            </a>
+        </section>
+        <!-- Center Panel: Status Checklist -->
+        <section
+            class="lg:col-span-4 flex flex-col h-full bg-surface-dark rounded-2xl border border-[#3a2e2e] overflow-hidden shadow-lg">
+            <div class="p-6 border-b border-[#3a2e2e] bg-black/20 flex justify-between items-center">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">emergency_home</span>
+                    Response Status
+                </h2>
+                <span class="text-xs font-mono text-white/40">ID: #EM-9928</span>
+            </div>
+            <div class="flex-1 p-6 flex flex-col gap-4 overflow-y-auto">
+                <!-- Status Item: Completed -->
+                <div class="flex gap-4 p-4 rounded-xl bg-black/40 border border-success/30 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-success/5 pointer-events-none"></div>
+                    <div class="flex-shrink-0 text-success">
+                        <span class="material-symbols-outlined text-4xl filled">check_circle</span>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-lg font-bold text-white">Control Room Alerted</h3>
+                        <p class="text-sm text-success/80 font-mono">Alert acknowledged at 00:01</p>
+                    </div>
+                </div>
+                <!-- Status Item: Active/Processing -->
+                <div class="flex gap-4 p-4 rounded-xl bg-warning/10 border border-warning/40 relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-warning/5 to-transparent animate-pulse-slow pointer-events-none">
+                    </div>
+                    <div class="flex-shrink-0 text-warning animate-pulse">
+                        <span class="material-symbols-outlined text-4xl">videocam</span>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-lg font-bold text-white">CCTV Sweep In Progress</h3>
+                        <p class="text-sm text-warning/80 font-mono flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-warning animate-blink"></span>
+                            Scanning Platform 4 feeds...
+                        </p>
+                    </div>
+                </div>
+                <!-- Status Item: Pending -->
+                <div class="flex gap-4 p-4 rounded-xl bg-white/5 border border-white/10 opacity-60">
+                    <div class="flex-shrink-0 text-white/40">
+                        <span class="material-symbols-outlined text-4xl">local_police</span>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-lg font-bold text-white/70">RPF Dispatch</h3>
+                        <p class="text-sm text-white/40 font-mono">Identifying nearest unit...</p>
+                    </div>
+                </div>
+                <!-- Status Item: Pending -->
+                <div class="flex gap-4 p-4 rounded-xl bg-white/5 border border-white/10 opacity-60">
+                    <div class="flex-shrink-0 text-white/40">
+                        <span class="material-symbols-outlined text-4xl">medical_services</span>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <h3 class="text-lg font-bold text-white/70">Medical Unit Standby</h3>
+                        <p class="text-sm text-white/40 font-mono">Waiting for situation assessment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Right Panel: Terminal Feed + Call Button -->
+        <section class="lg:col-span-4 flex flex-col gap-6 h-full">
+            <!-- Terminal -->
+            <div
+                class="flex-1 bg-terminal-black rounded-2xl border border-[#3a2e2e] p-2 flex flex-col shadow-inner font-mono text-sm overflow-hidden">
+                <div
+                    class="px-4 py-2 border-b border-white/10 flex justify-between items-center text-xs text-white/30 uppercase tracking-widest">
+                    <span>Syslog_Stream_v4.2</span>
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                </div>
+                <div class="p-4 flex-1 overflow-y-auto text-green-500/90 space-y-3 font-mono text-xs leading-relaxed">
+                    <div class="opacity-50">
+                        <span class="text-blue-400">[SYSTEM]</span> Initializing emergency protocols...
+                    </div>
+                    <div class="opacity-60">
+                        <span class="text-blue-400">[SYSTEM]</span> User location data received.
+                    </div>
+                    <div>
+                        <span class="text-purple-400">[GEO]</span> <span class="text-white">Coordinates locked:</span>
+                        28.6139° N, 77.2090° E
+                    </div>
+                    <div>
+                        <span class="text-yellow-400">[NETWORK]</span> Pinging nearest RPF handhelds (Radius: 500m)...
+                    </div>
+                    <div>
+                        <span class="text-red-400">[CCTV-CAM-04]</span> Feed accessed. Object detection running...
+                    </div>
+                    <div>
+                        <span class="text-red-400">[CCTV-CAM-05]</span> Feed accessed.
+                    </div>
+                    <div class="pl-4 border-l border-green-500/20">
+                        Analyzing crowd density: Low<br />
+                        Lighting conditions: Optimal
+                    </div>
+                    <div>
+                        <span class="text-yellow-400">[RPF-DISPATCH]</span> Unit 42 (Beta Team) acknowledging request...
+                    </div>
+                    <div>
+                        <span class="text-yellow-400">[RPF-DISPATCH]</span> Unit 42 status: EN ROUTE (ETA 2 mins)
+                    </div>
+                    <div class="animate-pulse">
+                        <span class="text-blue-400">[SYSTEM]</span> Awaiting visual confirmation...<span
+                            class="animate-blink inline-block w-2 h-4 bg-green-500 ml-1 align-middle"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- Call Button (Desktop) -->
+            <a href="../Resolution Success Dashboard/index.html"
+                class="hidden lg:flex w-full bg-primary hover:bg-[#d90a0a] transition-all transform hover:scale-[1.01] active:scale-[0.99] text-white h-24 rounded-2xl items-center justify-between px-8 shadow-[0_0_40px_rgba(242,13,13,0.25)] group border border-white/10">
+                <div class="flex flex-col items-start">
+                    <span class="text-sm font-medium text-white/80 uppercase tracking-wider mb-1">Emergency
+                        Override</span>
+                    <span class="text-2xl font-black tracking-tight">CALL RPF DIRECTLY</span>
+                </div>
+                <div class="bg-white/20 p-3 rounded-full group-hover:bg-white/30 transition-colors">
+                    <span class="material-symbols-outlined text-4xl fill-1">phone_in_talk</span>
+                </div>
+            </a>
+        </section>
+    </main>
+    <!-- Overlay/Effect for tactical feel -->
+    <div
+        class="fixed inset-0 pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] z-50">
+    </div>
+</body>
+
+</html>

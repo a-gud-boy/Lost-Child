@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>System Lock - Emergency Protocol</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts: Public Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f20d0d",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    keyframes: {
+                        pulseRed: {
+                            '0%, 100%': { backgroundColor: '#f20d0d' },
+                            '50%': { backgroundColor: '#b91c1c' },
+                        }
+                    },
+                    animation: {
+                        pulseRed: 'pulseRed 2s ease-in-out infinite',
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom utilities for this specific stark layout */
+        .stark-bg {
+            background-color: #050505;
+            /* Deepest black for the lock screen */
+        }
+
+        .text-alert-yellow {
+            color: #FFEB3B;
+            /* High contrast yellow */
+        }
+    </style>
+</head>
+
+<body class="stark-bg font-display min-h-screen flex flex-col overflow-hidden relative">
+    <!-- Decorative patterned background overlay (subtle texture) -->
+    <div class="absolute inset-0 opacity-5 pointer-events-none z-0"
+        style="background-image: radial-gradient(#333 1px, transparent 1px); background-size: 32px 32px;">
+    </div>
+    <!-- Top Alert Banner -->
+    <header
+        class="w-full bg-primary animate-pulseRed text-white px-6 py-4 flex items-center justify-between z-10 shadow-lg relative">
+        <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-3xl animate-pulse">warning</span>
+            <h2 class="text-lg md:text-xl font-black tracking-widest uppercase">Critical Alert: Case #8842 Active</h2>
+        </div>
+        <!-- Language Toggle -->
+        <div class="hidden md:flex items-center gap-4 text-sm font-bold tracking-wide">
+            <button
+                class="hover:text-black hover:bg-white/90 transition-colors px-3 py-1 rounded bg-white/20">English</button>
+            <span class="opacity-50">/</span>
+            <button class="hover:text-black hover:bg-white/90 transition-colors px-3 py-1 rounded">हिंदी</button>
+            <span class="opacity-50">/</span>
+            <button class="hover:text-black hover:bg-white/90 transition-colors px-3 py-1 rounded">বাংলা</button>
+        </div>
+        <!-- Mobile Language Icon (Visible only on small screens) -->
+        <button class="md:hidden p-2 text-white">
+            <span class="material-symbols-outlined">translate</span>
+        </button>
+    </header>
+    <!-- Main Content - Vertically Centered -->
+    <main
+        class="flex-grow flex flex-col items-center justify-center text-center px-4 relative z-10 w-full max-w-7xl mx-auto">
+        <!-- Locked Icon Visual -->
+        <div class="mb-12 text-primary opacity-80">
+            <span class="material-symbols-outlined text-[120px] md:text-[160px]"
+                style="font-variation-settings: 'FILL' 1, 'wght' 700;">lock</span>
+        </div>
+        <!-- Primary Directive -->
+        <h1
+            class="text-white text-5xl md:text-7xl lg:text-9xl font-black leading-tight tracking-tighter uppercase mb-8 drop-shadow-2xl">
+            Do Not Move.<br />
+            <span class="text-primary">Stay Where You Are.</span>
+        </h1>
+        <!-- Secondary Instruction -->
+        <div class="max-w-4xl space-y-4">
+            <p class="text-alert-yellow text-xl md:text-3xl font-bold uppercase tracking-wide">
+                RPF Officers have been dispatched.
+            </p>
+            <p class="text-white/90 text-lg md:text-2xl font-medium">
+                Look for the neon yellow jackets. Do not leave the platform until authorized.
+            </p>
+        </div>
+        <!-- Emergency Contact Card (Floating at bottom) -->
+        <a href="../Tactical Emergency Dashboard/index.html"
+            class="absolute bottom-8 left-0 right-0 flex justify-center">
+            <div
+                class="bg-[#1a1a1a] border border-[#333] rounded-xl p-4 flex items-center gap-6 max-w-md w-full mx-4 shadow-2xl hover:scale-105 transition-transform cursor-pointer">
+                <div class="bg-primary/20 p-3 rounded-full text-primary">
+                    <span class="material-symbols-outlined text-3xl">sos</span>
+                </div>
+                <div class="text-left cursor-pointer">
+                    <p class="text-xs text-gray-400 uppercase tracking-wider font-semibold">Emergency Hotline Connected
+                    </p>
+                    <p class="text-white text-lg font-bold">Station Master: +91 9988 7766 55</p>
+                </div>
+                <div class="ml-auto animate-pulse">
+                    <div class="h-3 w-3 bg-green-500 rounded-full"></div>
+                </div>
+            </div>
+        </a>
+    </main>
+</body>
+
+</html>

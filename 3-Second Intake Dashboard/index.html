@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Rail Saathi | Emergency Intake</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f20d0d",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "sans": ["Public Sans", "sans-serif"],
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: "Public Sans", sans-serif;
+        }
+
+        /* Custom checkbox/radio styling for the color blocks */
+        .color-radio:checked+div {
+            outline: 6px solid #fff;
+            box-shadow: 0 0 0 8px #000;
+            z-index: 10;
+            transform: scale(1.02);
+        }
+
+        /* Make the whole page feel rigid and app-like */
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body class="bg-zinc-900 text-white flex flex-col h-screen overflow-hidden">
+    <!-- Top Navigation (Simplified for Focus) -->
+    <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-zinc-800 bg-zinc-900 px-6 py-3 shrink-0">
+        <div class="flex items-center gap-4 text-white">
+            <div class="size-8 text-primary">
+                <span class="material-symbols-outlined text-4xl">train</span>
+            </div>
+            <h2 class="text-white text-lg font-bold leading-tight tracking-wider">RAIL SAATHI | EMERGENCY PORTAL</h2>
+        </div>
+        <div class="flex gap-2">
+            <div class="flex items-center gap-2 px-3 py-1 bg-zinc-800 rounded text-xs font-bold text-zinc-400">
+                <span class="material-symbols-outlined text-sm">wifi</span> ONLINE
+            </div>
+            <div
+                class="flex items-center gap-2 px-3 py-1 bg-red-900/30 border border-red-900 text-primary rounded text-xs font-bold animate-pulse">
+                <span class="material-symbols-outlined text-sm">warning</span> LIVE INCIDENT
+            </div>
+        </div>
+    </header>
+    <!-- Main Content Area -->
+    <main class="flex flex-1 w-full h-full overflow-hidden">
+        <!-- Left Column: Photo Upload -->
+        <div class="w-1/2 flex flex-col border-r border-zinc-800 h-full">
+            <!-- Status Header -->
+            <div class="bg-[#F2C94C] text-black px-6 py-4 flex items-center justify-between shrink-0">
+                <h1 class="text-2xl font-black tracking-tighter uppercase flex items-center gap-2">
+                    <span class="material-symbols-outlined fill-1">notifications_active</span>
+                    Alert Initiated
+                </h1>
+                <span class="font-bold text-sm bg-black/10 px-2 py-1 rounded">ID: #992-KLA</span>
+            </div>
+            <!-- Upload Area -->
+            <div class="flex-1 p-6 flex flex-col gap-4 bg-zinc-900 relative">
+                <div
+                    class="flex-1 w-full bg-zinc-800 border-4 border-dashed border-zinc-700 rounded-lg hover:border-zinc-500 hover:bg-zinc-750 transition-colors cursor-pointer group flex flex-col items-center justify-center relative overflow-hidden">
+                    <input aria-label="Upload Photo"
+                        class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" type="file" />
+                    <div
+                        class="flex flex-col items-center gap-4 group-hover:scale-105 transition-transform duration-200">
+                        <div
+                            class="size-24 rounded-full bg-zinc-700 flex items-center justify-center text-zinc-400 group-hover:bg-zinc-600 group-hover:text-white">
+                            <span class="material-symbols-outlined text-5xl">add_a_photo</span>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-zinc-300 group-hover:text-white">UPLOAD CHILD PHOTO</h3>
+                            <p class="text-zinc-500 mt-1 font-medium">Drag &amp; drop or click to browse</p>
+                        </div>
+                    </div>
+                </div>
+                <button
+                    class="shrink-0 w-full py-4 bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white font-bold text-lg rounded border border-zinc-700 transition-colors flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined">skip_next</span>
+                    SKIP PHOTO UPLOAD
+                </button>
+            </div>
+        </div>
+        <!-- Right Column: Shirt Color Selection -->
+        <div class="w-1/2 flex flex-col h-full bg-zinc-900">
+            <div class="px-6 py-4 border-b border-zinc-800 shrink-0">
+                <h3 class="text-xl font-bold text-zinc-400 uppercase tracking-wide">Select Shirt Color</h3>
+                <p class="text-zinc-500 text-sm">Tap the color that matches the child's clothing.</p>
+            </div>
+            <div class="flex-1 p-6 grid grid-cols-2 gap-4 auto-rows-fr">
+                <!-- Red -->
+                <label class="cursor-pointer relative group h-full">
+                    <input class="color-radio absolute opacity-0 w-0 h-0" name="shirt_color" type="radio" value="red" />
+                    <div
+                        class="w-full h-full bg-red-600 rounded flex items-center justify-center transition-transform active:scale-95 group-hover:brightness-110">
+                        <span
+                            class="font-black text-2xl uppercase tracking-widest text-red-900 mix-blend-multiply opacity-60 group-hover:opacity-100">Red</span>
+                        <div
+                            class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-10 text-white">
+                            <span class="material-symbols-outlined text-6xl">check_circle</span>
+                        </div>
+                    </div>
+                </label>
+                <!-- Blue -->
+                <label class="cursor-pointer relative group h-full">
+                    <input class="color-radio absolute opacity-0 w-0 h-0" name="shirt_color" type="radio"
+                        value="blue" />
+                    <div
+                        class="w-full h-full bg-blue-600 rounded flex items-center justify-center transition-transform active:scale-95 group-hover:brightness-110">
+                        <span
+                            class="font-black text-2xl uppercase tracking-widest text-blue-900 mix-blend-multiply opacity-60 group-hover:opacity-100">Blue</span>
+                    </div>
+                </label>
+                <!-- Yellow -->
+                <label class="cursor-pointer relative group h-full">
+                    <input class="color-radio absolute opacity-0 w-0 h-0" name="shirt_color" type="radio"
+                        value="yellow" />
+                    <div
+                        class="w-full h-full bg-yellow-400 rounded flex items-center justify-center transition-transform active:scale-95 group-hover:brightness-110">
+                        <span
+                            class="font-black text-2xl uppercase tracking-widest text-yellow-700 mix-blend-multiply opacity-60 group-hover:opacity-100">Yellow</span>
+                    </div>
+                </label>
+                <!-- Green -->
+                <label class="cursor-pointer relative group h-full">
+                    <input class="color-radio absolute opacity-0 w-0 h-0" name="shirt_color" type="radio"
+                        value="green" />
+                    <div
+                        class="w-full h-full bg-green-600 rounded flex items-center justify-center transition-transform active:scale-95 group-hover:brightness-110">
+                        <span
+                            class="font-black text-2xl uppercase tracking-widest text-green-900 mix-blend-multiply opacity-60 group-hover:opacity-100">Green</span>
+                    </div>
+                </label>
+                <!-- Black -->
+                <label class="cursor-pointer relative group h-full">
+                    <input class="color-radio absolute opacity-0 w-0 h-0" name="shirt_color" type="radio"
+                        value="black" />
+                    <div
+                        class="w-full h-full bg-black border-2 border-zinc-700 rounded flex items-center justify-center transition-transform active:scale-95 group-hover:border-zinc-500">
+                        <span
+                            class="font-black text-2xl uppercase tracking-widest text-zinc-700 opacity-100 group-hover:text-zinc-500">Black</span>
+                    </div>
+                </label>
+                <!-- White -->
+                <label class="cursor-pointer relative group h-full">
+                    <input class="color-radio absolute opacity-0 w-0 h-0" name="shirt_color" type="radio"
+                        value="white" />
+                    <div
+                        class="w-full h-full bg-white rounded flex items-center justify-center transition-transform active:scale-95 group-hover:brightness-90">
+                        <span
+                            class="font-black text-2xl uppercase tracking-widest text-zinc-200 mix-blend-multiply opacity-100 group-hover:opacity-100">White</span>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </main>
+    <!-- Bottom Action Bar -->
+    <footer class="bg-zinc-900 p-4 border-t border-zinc-800 shrink-0">
+        <a href="../System Lock Full-Screen/index.html"
+            class="w-full bg-primary hover:bg-red-600 text-white text-3xl font-black py-6 rounded uppercase tracking-wide shadow-lg shadow-red-900/50 hover:shadow-red-600/50 transition-all active:translate-y-1 flex items-center justify-center gap-4">
+            <span class="material-symbols-outlined text-4xl font-bold">campaign</span>
+            Send Alert Now
+        </a>
+    </footer>
+</body>
+
+</html>

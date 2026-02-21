@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Resolution Success Dashboard - Indian Railway Child Safety</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f20d0d",
+                        "success": "#16a34a",
+                        "success-dark": "#14532d",
+                        "background-light": "#f8f5f5",
+                        "background-dark": "#221010",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for map container if needed */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body class="bg-success min-h-screen font-display antialiased overflow-hidden flex flex-col">
+    <!-- Header -->
+    <header class="flex items-center justify-between whitespace-nowrap px-6 py-4 lg:px-10 z-10 relative">
+        <div class="flex items-center gap-4 text-white">
+            <div class="size-8 flex items-center justify-center bg-white/20 rounded-full backdrop-blur-sm">
+                <span class="material-symbols-outlined text-xl">security</span>
+            </div>
+            <a href="../Standby Mode Web Portal/index.html"
+                class="text-white text-lg font-bold leading-tight tracking-[-0.015em] hover:text-white/80 transition-colors">Indian
+                Railway Child Safety</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <div class="hidden md:flex flex-col items-end text-white/90 text-sm">
+                <span class="font-bold">Case #IR-2023-9982</span>
+                <span class="text-xs opacity-80">Live Tracking Active</span>
+            </div>
+            <button
+                class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-white text-success font-bold text-sm shadow-md hover:bg-gray-100 transition-colors">
+                <span class="material-symbols-outlined mr-2 text-[20px]">call</span>
+                <span class="truncate">Emergency Help</span>
+            </button>
+            <div class="bg-center bg-no-repeat bg-cover rounded-full size-10 border-2 border-white/30"
+                data-alt="Profile picture of the current user logged in"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD_gEJkiMRmVsbv9Cs7zZ9-iNtB2v9aDmZ8zNfbTPiQ0KKnOArND0hf307dTcFnv_PaBcoJ6xGx_n6zg5uHS6hyzKoGc_tiU_E25midtBdbDAcACe1MTZJOb5GyCgMOQJR96v6G_U21699wf87TmzCDrdGFPEPzA5jDGrcQ2OGyVZPtRZCZ-2QxsSa2dDhHvnKNf9xik-3HMoCF0lc9mPqJJsuvMDwPfRSmmEmRg9XH6GjxyIh3rGuM-tRpapmXRTFxnspYEZNPqq0o");'>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content Split Layout -->
+    <main class="flex-1 flex flex-col lg:flex-row items-stretch overflow-hidden relative z-0">
+        <!-- Left Side: Status & Instructions -->
+        <div class="flex-1 flex flex-col justify-center px-6 lg:px-20 py-10 lg:py-0 text-white relative">
+            <!-- Background Pattern decorative -->
+            <div class="absolute inset-0 opacity-10 pointer-events-none"
+                style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;">
+            </div>
+            <div class="relative z-10 max-w-2xl">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 border border-white/30 text-sm font-medium mb-6 backdrop-blur-md">
+                    <span class="material-symbols-outlined text-lg filled">check_circle</span>
+                    <span>Resolution Successful</span>
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-black leading-tight tracking-tight mb-6 drop-shadow-sm">
+                    CHILD<br />SECURED
+                </h1>
+                <div class="w-24 h-2 bg-white/40 rounded-full mb-8"></div>
+                <h2 class="text-2xl lg:text-3xl font-bold leading-snug text-white/95 mb-4">
+                    Officer Sharma is waiting at the Station Master Office
+                </h2>
+                <p class="text-lg text-white/80 font-medium leading-relaxed max-w-xl">
+                    Case ID: #IR-2023-9982 confirmed. The child is safe and under supervision. Please proceed
+                    immediately to the location to complete the handover.
+                </p>
+                <div class="mt-10 flex gap-4">
+                    <button
+                        class="flex items-center justify-center h-12 px-6 rounded-lg bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold transition-all backdrop-blur-sm">
+                        <span class="material-symbols-outlined mr-2">download</span>
+                        Download Report
+                    </button>
+                    <button
+                        class="flex items-center justify-center h-12 px-6 rounded-lg bg-transparent hover:bg-white/10 text-white font-medium transition-all">
+                        <span class="material-symbols-outlined mr-2">share</span>
+                        Share Status
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Right Side: Action Card & Map -->
+        <div class="flex-1 bg-white/5 lg:bg-transparent p-6 lg:p-10 flex items-center justify-center lg:justify-start">
+            <div
+                class="bg-white rounded-3xl shadow-2xl shadow-black/20 w-full max-w-lg overflow-hidden flex flex-col h-auto lg:h-[85vh] max-h-[800px]">
+                <!-- PIN Section (High Relief) -->
+                <div class="bg-white p-8 pb-6 border-b border-gray-100 flex-shrink-0 relative">
+                    <div class="absolute top-0 right-0 p-4 opacity-5">
+                        <span class="material-symbols-outlined text-[120px] text-black">lock_open</span>
+                    </div>
+                    <p class="text-gray-500 text-sm font-bold tracking-wider uppercase mb-3">Verification Code</p>
+                    <div class="flex flex-col gap-2 relative z-10">
+                        <h3 class="text-6xl font-black text-slate-900 tracking-tighter tabular-nums">
+                            4921
+                        </h3>
+                        <p class="text-slate-600 font-medium flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary">key</span>
+                            Provide this PIN to Officer Sharma
+                        </p>
+                    </div>
+                </div>
+                <!-- Map / Route Visualization -->
+                <div class="flex-1 bg-slate-50 relative p-6 flex flex-col">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="text-slate-900 font-bold text-lg">Route to Station Master</h4>
+                        <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded uppercase">Est. 2
+                            Min Walk</span>
+                    </div>
+                    <!-- Simplified SVG Map -->
+                    <div
+                        class="relative flex-1 bg-white rounded-xl border border-slate-200 overflow-hidden shadow-inner p-4">
+                        <!-- Abstract Map Background -->
+                        <div class="absolute inset-0 opacity-20"
+                            style="background-image: linear-gradient(0deg, transparent 24%, #e2e8f0 25%, #e2e8f0 26%, transparent 27%, transparent 74%, #e2e8f0 75%, #e2e8f0 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, #e2e8f0 25%, #e2e8f0 26%, transparent 27%, transparent 74%, #e2e8f0 75%, #e2e8f0 76%, transparent 77%, transparent); background-size: 30px 30px;">
+                        </div>
+                        <!-- Route Visualization -->
+                        <div class="relative h-full w-full flex flex-col justify-between items-center py-6">
+                            <!-- Start Point -->
+                            <div class="flex items-center gap-3 w-full max-w-[80%]">
+                                <div class="size-4 bg-slate-300 rounded-full border-4 border-white shadow-sm z-10">
+                                </div>
+                                <div
+                                    class="bg-white px-3 py-2 rounded-lg shadow-sm border border-slate-100 text-xs font-bold text-slate-500">
+                                    You are here (Platform 1)
+                                </div>
+                            </div>
+                            <!-- Path Line -->
+                            <div
+                                class="absolute left-[calc(50%-1px)] top-10 bottom-10 w-0.5 border-l-2 border-dashed border-primary/40 h-[calc(100%-80px)] md:left-[10%] z-0">
+                            </div>
+                            <!-- Destination Point -->
+                            <div class="flex items-center gap-3 w-full max-w-[80%] mt-auto">
+                                <div
+                                    class="size-8 bg-success text-white rounded-full flex items-center justify-center shadow-lg shadow-success/30 z-10 animate-pulse">
+                                    <span class="material-symbols-outlined text-sm">person_pin_circle</span>
+                                </div>
+                                <div class="bg-slate-900 px-4 py-3 rounded-lg shadow-lg text-white">
+                                    <div class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-1">
+                                        Destination</div>
+                                    <div class="font-bold text-sm">Station Master Office</div>
+                                    <div class="text-xs text-slate-400">Near Ticket Counter 4</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Contact Officer Action -->
+                    <div class="mt-6 pt-4 border-t border-slate-200">
+                        <div class="flex items-center gap-4">
+                            <div class="size-12 rounded-full bg-slate-200 bg-cover bg-center shrink-0"
+                                data-alt="Officer Sharma profile photo"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDE-44f1Nu4hikaU6rCAN4Zsz3DkjqNEOqdPG7q4rNS-hL7vYoLZ_o3FHLr3XA6v37wiquptamUhxuvspk5y5dFfd3mXiAC6PGC_kKBkL6JhKarzWZPBSL7Px8f36VMpgleFN0zdEGbd9PHORifMBCpBtn3UfuyRBS7yWUMyu3-DkSKRvQpyAsuecZ322dRBM5hRHaXEWA8xx5jlEIpmDBBHr-RdQ7r_qg5dKFbXz5HxHgtxJYrMBWhc221d4zzFTcyU7U_DH7xqehI");'>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-slate-900 font-bold">Officer Sharma</div>
+                                <div class="text-slate-500 text-sm">Railway Police Force</div>
+                            </div>
+                            <button
+                                class="bg-primary hover:bg-red-700 text-white p-3 rounded-full shadow-lg shadow-red-500/30 transition-colors">
+                                <span class="material-symbols-outlined">call</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
